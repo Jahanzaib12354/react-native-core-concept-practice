@@ -33,8 +33,11 @@ const LoginScreen = () => {
   }
 
   alert('Login Successful');
+   navigation.navigate('TabNavigator')
 };
 
+
+ 
   return (
     <ScrollView contentContainerStyle={styles.scroll}
       

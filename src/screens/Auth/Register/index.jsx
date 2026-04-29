@@ -12,25 +12,29 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState('');
  const navigation = useNavigation();
  
- const handleLogin = () => {
-    navigation.navigate('login')
-  }
+ const handleRegister = () => {
+   
 
-  const handleRegister = () => {
  
     if (!name || !email || !password) {
       Alert.alert('Error', 'Please fill all fields');
       return;
     }
-
-
+     if (!email.endsWith('@gmail.com')) {
+    Alert.alert('Email must be @gmail.com');
+    return;
+  }
+  if (password.length < 6) {
+    Alert.alert('Password must be at least 6 characters');
+    return;
+  }
     Alert.alert('Success', 'User Registered Successfully');
 
     setName('');
     setEmail('');
     setPassword('');
 
-    
+      navigation.navigate('login')
   };
 
   return (
@@ -62,7 +66,7 @@ const RegisterScreen = () => {
       <CustomButton
       customStyle={styles.loginBtn}
       text={'Register'}
-         onPress={handleLogin}
+         onPress={handleRegister}
       />
     </View>
   );
