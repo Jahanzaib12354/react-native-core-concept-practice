@@ -1,22 +1,39 @@
 
-import React from 'react'
+// import React from 'react'
 
-import { createBottomDrawerNavigator } from '@react-navigation/bottom-tabs'
-import HomeScreen from '../screens/Home'
-import ProfileScreen from '../screens/Profile'
-import SettingScreen from '../screens/Setting'
+// import { createDrawerNavigator } from '@react-navigation/drawer';
+// import NotificationScreen from '../screens/Notification'
+// import TabNavigator from './TabNavigator';
+// import LoginScreen from '../screens/Auth/Login';
 
-const Tab = createBottomDrawerNavigator ();
-const DrawerNavigator = () => {
-  return (
+// const Drawer = createDrawerNavigator();
+// const DrawerNavigator = () => {
+//   return (
 
-   <DrawerNavigator>
-    <Tab.Screen name="Home" component={HomeScreen} />
-    <Tab.Screen name="Profile" component={ProfileScreen} />
-    <Tab.Screen name="Setting" component={SettingScreen} />
-   </DrawerNavigator>
+//    <Drawer.Navigator
+//    screenOptions={{
+//     drawerStyle:{
+//       backgroundColor:'#e6e6e6',
+//       width:240,
+//     },
+//     drawerLabelStyle:{
+//       fontSize:18,
+//       color:'#333'
+//     },
+//     headerStyle:{
+//       backgroundColor:'#6200EE'
+//     },
+//     headerTintColor:'#fff',
+//     headerTitleAlign:'center',
+//    }}
+//    >
+//     <Drawer.Screen name="HomeTabs" component={TabNavigator} />
+//     <Drawer.Screen name="Notification" component={NotificationScreen} />
+//     <Drawer.Screen name="Logout" component={LoginScreen} />
+    
+//    </Drawer.Navigator>
    
-  );
-};
+//   );
+// };
 
-export default DrawerNavigator;
+// export default DrawerNavigator;
