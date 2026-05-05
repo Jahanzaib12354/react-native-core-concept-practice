@@ -5,11 +5,14 @@ import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import InputField from '../../../components/InputField'
 import CustomButton from '../../../components/CustomButton'
+import LoaderScreen from '../../../components/Loader'
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false) 
   const navigation = useNavigation();
+  
 
   const handleRegister = () => {
     navigation.navigate('register')
@@ -32,9 +35,14 @@ const LoginScreen = () => {
     return;
   }
 
-  alert('Login Successful');
-   navigation.navigate('TabNavigator')
+ setLoading(true);
+ setTimeout(() => {
+    setLoading(false); 
+    alert('Login Successful');
+    navigation.navigate('TabNavigator');
+  }, 2000);
 };
+  
 
 
  
@@ -42,6 +50,7 @@ const LoginScreen = () => {
     <ScrollView contentContainerStyle={styles.scroll}
       
 >
+<LoaderScreen visible={loading} />
     <View style={styles.container}>
 
         <Text style={styles.title}>Login</Text>
@@ -54,6 +63,7 @@ const LoginScreen = () => {
         value={email}
         onChangeText={setEmail}
         placeholder='Enter email '
+        
       />
 
       <InputField

@@ -26,7 +26,6 @@ const HomeScreen = () => {
     const renderItem =({item})=>{
       return(
       <View style={styles.card}>
-         <Text>{item.userId}</Text>
         <Text>{item.title}</Text>
         <Text>{item.body}</Text>
       

@@ -4,14 +4,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f4f6f8',
+    //  justifyContent: 'space-between', 
     padding: 20,
   },
 
   title: {
+    fontWeight: 'bold',
     fontSize: 16,
     color: '#555',
     marginTop: 15,
   },
+  input:{
+  fontSize: 16,
+    color: '#555',
+    marginTop: 15,
+  },
+  valuetitle: {
+  borderWidth: 1,
+  borderColor: '#ccc',
+  borderRadius: 8,
+  padding: 10,
+  marginBottom: 15,
+  backgroundColor: '#fff',
+  
+},
 
   Value: {
     fontSize: 18,
@@ -20,7 +36,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 
-  switch: {
+  switchs: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -28,7 +44,7 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: '#fff',
     borderRadius: 10,
-    elevation: 3, // android shadow
+    elevation: 3, 
   },
 
   switchtext: {
@@ -44,6 +60,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#ccc',
   },
+
+   buttonContainer: {
+  position: 'absolute',
+  bottom: 20,
+  left: 20,
+  right: 20,
+},
+
 });
 
 export default styles;

@@ -19,35 +19,28 @@ const ProfileScreen = () => {
   };
   return (
     <View style={styles.container}>
-
-    <Text style={styles.title}>Name</Text>
-      {isEditing ? (
-        <InputField
-  value={user.name}
-  onChangeText={(text) => setUser({ ...user, name: text })}
+  <Text style={styles.title}>Name</Text>
+   <InputField style={styles.input}
+         
+          value={user.name}
+          onChangeText={(text) => setUser({ ...user, name: text,  })}
+          editable={isEditing? true:false}
+          
+          
         />
-      ) : (
-        <Text style={styles.title}>{user.name}</Text>
-      )}
 
-<Text style={styles.title}>City</Text>
-      {isEditing ? (
-        <InputField
-          value={user.city}
+      <Text style={styles.title}>City</Text>
+        <InputField style={styles.input}
+          value={user?.city}
           onChangeText={(text) => setUser({ ...user, city: text })}
+          editable={isEditing? true:false}
         />
-
-      ) : (
-        <Text style={styles.title}>{user.city}</Text>
-      )}
-
-      
-
+ <View style={styles.buttonContainer}>
       <CustomButton
         text={isEditing ? "Save" : "Edit"}
         onPress={toggleEdit}
       />
-
+</View>
     </View>
   );
 };

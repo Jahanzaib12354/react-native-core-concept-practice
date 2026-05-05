@@ -15,7 +15,7 @@ const getTabBarIcon = (routeName, focused, color, size) => {
   if (routeName === "Home") {
     iconName = focused ? 'home' : 'home-outline';
   }
-  else if (routeName === "Profile") {
+  else if (routeName === "Profile" ) {
     iconName = focused ? 'person' : 'person-outline';
   }
   else if (routeName === "Settings") {
@@ -27,27 +27,28 @@ const getTabBarIcon = (routeName, focused, color, size) => {
 const TabNavigator = () => {
   return (
     <Tab.Navigator
-
-      screenOptions={({ route }) => ({
+     
+      screenOptions={({ route } ) => ({
         tabBarIcon: ({ focused, size, color }) =>
           getTabBarIcon(route.name, focused, color, size),
         tabBarActiveTintColor: '#007bff',
         tabBarInactiveTintColor: 'gray',
+
         tabBarStyle: { backgroundColor: '#fff' },
         tabBarIndicatorStyle: {
           backgroundColor: '#007bff',
           height: 3,
-
-
         },
-        tabBarLabelStyle: { fontSize: 16 },
-
+        tabBarLabelStyle: { 
+          fontSize: 16 
+        },
+       
       })
       }
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen name="Settings" component={SettingScreen} />
+      <Tab.Screen name="Home" options={{ headerShown: false }}  component={HomeScreen} />
+      <Tab.Screen name="Profile" options={{ headerShown: true }}  component={ProfileScreen} />
+      <Tab.Screen name="Settings" options={{ headerShown: true }} component={SettingScreen}  />
     </Tab.Navigator>
 
   );

@@ -8,7 +8,8 @@ const InputField = ({
   onChangeText,
   placeholder = "something",
   customStyle,
-  secureTextEntry
+  secureTextEntry,
+  editable
 
 }) => {
   return (
@@ -18,6 +19,8 @@ const InputField = ({
       placeholder={placeholder}
       style={[styles.container, {...customStyle}]}
       secureTextEntry={secureTextEntry}
+      editable={editable}
+      
     />
   );
 };

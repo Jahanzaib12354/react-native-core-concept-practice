@@ -8,11 +8,24 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 14,
+    fontWeight: 'bold',
+    fontSize: 16,
     color: '#555',
     marginTop: 15,
-    marginBottom: 5,
   },
+  input:{
+  fontSize: 16,
+    color: '#555',
+    marginTop: 15,
+  },
+  valuetitle: {
+  borderWidth: 1,
+  borderColor: '#ccc',
+  borderRadius: 8,
+  padding: 10,
+  marginBottom: 15,
+  backgroundColor: '#fff'
+},
 
   valueText: {
     fontSize: 18,
@@ -46,6 +59,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  buttonContainer: {
+  position: 'absolute',
+  bottom: 20,
+  left: 20,
+  right: 20,
+},
 });
 
 export default styles;
