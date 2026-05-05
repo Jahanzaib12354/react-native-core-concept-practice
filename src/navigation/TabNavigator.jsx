@@ -1,6 +1,6 @@
-import { View, Text } from 'react-native'
+import { View, Text , Button,TouchableOpacity} from 'react-native'
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomeScreen from '../screens/Home'
 import ProfileScreen from '../screens/Profile'
@@ -24,7 +24,7 @@ const getTabBarIcon = (routeName, focused, color, size) => {
   return <Icon name={iconName} size={size} color={color} />;
 };
 
-const TabNavigator = () => {
+const TabNavigator = (navigation) => {
   return (
     <Tab.Navigator
      
@@ -46,9 +46,40 @@ const TabNavigator = () => {
       })
       }
     >
-      <Tab.Screen name="Home" options={{ headerShown: false }}  component={HomeScreen} />
-      <Tab.Screen name="Profile" options={{ headerShown: true }}  component={ProfileScreen} />
-      <Tab.Screen name="Settings" options={{ headerShown: true }} component={SettingScreen}  />
+      <Tab.Screen 
+      name="Home"  
+      component={HomeScreen} />
+      
+     <Tab.Screen 
+  name="Profile"
+  component={ProfileScreen}
+  options={({ navigation }) => ({   
+    headerLeft: () => (
+      <TouchableOpacity  
+        onPress={() => navigation.goBack()}  
+        style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 16 }}  
+      >  
+        <Icon name="arrow-back" size={24} color="black" />  
+        <Text style={{ marginLeft: 8, fontSize: 16 }}></Text>  
+      </TouchableOpacity>  
+    ),
+  })}
+/>
+
+      
+      <Tab.Screen name="Settings"  component={SettingScreen} 
+       options={({ navigation }) => ({  
+      headerLeft: () => (
+      <TouchableOpacity  
+        onPress={() => navigation.navigate('Profile')}  
+        style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 16 }}  
+      >  
+        <Icon name="arrow-back" size={24} color="black" />  
+        <Text style={{ marginLeft: 8, fontSize: 16 }}></Text>  
+      </TouchableOpacity>  
+    ),
+  })}
+      />
     </Tab.Navigator>
 
   );

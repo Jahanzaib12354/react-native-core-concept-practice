@@ -1,18 +1,18 @@
-import { View, Text, Switch, TouchableOpacity } from 'react-native'
+import { View, Text, Switch} from 'react-native'
 
 import styles from './styles'
 import CustomButton from '../../components/CustomButton'
 import React, { Activity, useState } from 'react';
 import InputField from '../../components/InputField';
- import { Dropdown } from 'react-native-element-dropdown';
+
+import DropdownComponent from '../../components/DropdownComponent';
 
 const SettingScreen = () => {
 
   const [isEditing, setIsEditing] = useState(false)
   const [isEnabled, setIsEnabled] = useState(false)
   const toggleSwitch = () => setIsEnabled(previous => !previous);
-   const[selectorValue,setSelectorValue]=useState(null)
-   const data = [
+     const data = [
     { label: 'Item 1', value: '1' },
     { label: 'Item 2', value: '2' },
     { label: 'Item 3', value: '3' },
@@ -22,6 +22,14 @@ const SettingScreen = () => {
     { label: 'Item 7', value: '7' },
     { label: 'Item 8', value: '8' },
   ];
+  const abc=[
+    { label: 'Item 10', value: '10' },
+    { label: 'Item 5', value: '5' },
+    { label: 'Item 6', value: '6' },
+    { label: 'Item 7', value: '7' },
+    { label: 'Item 8', value: '8' },
+  ];
+
 
   const [user, setUser] = useState({
     name: "Ali",
@@ -61,18 +69,16 @@ const SettingScreen = () => {
           onValueChange={toggleSwitch}
         />
       </View>
-   <View >
-  <Text>select object</Text>
-  <Dropdown
-  data={data}
-  labelField='label'
- valueField='value'
- placeholder='select option'
- value={selectorValue}
- onChange={item=>(setSelectorValue(item.value)
-)}
+      
+   
+  
+
+  <DropdownComponent
+  data={abc}
   />
-</View>
+   <DropdownComponent
+     data={data}
+   />
   
       <View style={styles.buttonContainer}>
       <CustomButton
@@ -87,6 +93,7 @@ const SettingScreen = () => {
 
 
 export default SettingScreen;
+
 
 
 

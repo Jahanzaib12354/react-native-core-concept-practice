@@ -1,17 +1,22 @@
-import { View, Text } from 'react-native';
 import React from 'react';
+import { View, StyleSheet, Modal } from 'react-native';
 import { LoaderKitView } from 'react-native-loader-kit';
-import styles from '../InputField/styles';
-
-const LoaderScreen = ({ visible = false }) => {
-  if (!visible) return null;
-
+import styles  from './styles';
+const Loader = ({ visible = false }) => {
   return (
-    <View style={styles.container}>
-      <LoaderKitView style={{ width: 50, height: 50 }} />
-      <Text>Loader</Text>
-    </View>
+    <Modal transparent visible={visible} animationType="fade">
+      <View style={styles.overlay}>
+        <View style={styles.box}>
+          <LoaderKitView
+            style={{ width: 60, height: 60 }}
+            name={'BallPulse'}
+            color={'#ffffff'}
+          />
+        </View>
+      </View>
+    </Modal>
   );
 };
 
-export default LoaderScreen;
+export default Loader;
+
